@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import Spinner from '../Spinner';
-import * as API from '../../api';
 import styles from './index.module.scss';
+import Spinner from '../Spinner';
+import RadioGroup from '../RadioButtons/RadioGroup'; // Імпорт RadioGroup
+import RadioButton from '../RadioButtons/RadioButton'; // Імпорт RadioButton
+import * as API from '../../api';
 
 const ListUsers = ({ users }) => {
   const renderUser = ({ login: { uuid }, name: { first: firstName, last: lastName }, gender }) => {
@@ -29,7 +31,7 @@ class UsersLoader extends Component {
   load(seed) {
     this.setState({ isLoading: true });
     const { page, gender } = this.state;
-    API.getUsers({ page, results: 5, gender, seed})
+    API.getUsers({ page, results: 5, gender, seed })
       .then(data => this.setState({
         users: data.results,
       }))
@@ -76,34 +78,16 @@ class UsersLoader extends Component {
       <section className={styles.userList}>
         <h2>Users List</h2>
         <hr />
+
         <div>
-          <label>
-            <input
-              type="radio"
-              value="all"
-              checked={gender === 'all'}
-              onChange={this.handleGenderChange}
-            />
-            All
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="male"
-              checked={gender === 'male'}
-              onChange={this.handleGenderChange}
-            />
-            Male
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="female"
-              checked={gender === 'female'}
-              onChange={this.handleGenderChange}
-            />
-            Female
-          </label>
+          <RadioGroup
+            value={gender}
+            onChange={this.handleGenderChange}
+          >
+            <RadioButton value="all" label="All" />
+            <RadioButton value="male" label="Male" />
+            <RadioButton value="female" label="Female" />
+          </RadioGroup>
         </div>
 
         <button disabled={page === 1} onClick={this.prevPage}>{"<"}</button>
