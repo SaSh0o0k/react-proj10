@@ -1,0 +1,28 @@
+.userList {
+  text-align: center;
+
+  .currPage {
+    font-weight: 900;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  hr {
+    text-align: center;
+    width: 120px;
+    height: 2px;
+    background-color: #000;
+    margin: -10px auto 10px;
+    border: none;
+  }
+
+  button {
+    border: none;
+  }
+}
