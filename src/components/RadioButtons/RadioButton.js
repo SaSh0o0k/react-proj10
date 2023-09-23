@@ -1,4 +1,3 @@
-// RadioButton.js
 import React from 'react';
 
 const RadioButton = ({ value, checked, onChange, label }) => {
