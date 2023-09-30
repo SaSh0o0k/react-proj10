@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styles from './index.module.scss';
 import Spinner from '../Spinner';
-import RadioGroup from '../RadioButtons/RadioGroup'; // Імпорт RadioGroup
-import RadioButton from '../RadioButtons/RadioButton'; // Імпорт RadioButton
+import RadioGroup from '../RadioButtons/RadioGroup';
+import RadioButton from '../RadioButtons/RadioButton';
 import * as API from '../../api';
 
 const ListUsers = ({ users }) => {
